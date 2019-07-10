@@ -1,0 +1,22 @@
+{
+  "name": "terminal-emulator-profile",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run develop",
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@emotion/core": "^10.0.14",
+    "@emotion/styled": "^10.0.14",
+    "gatsby": "^2.13.12",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
