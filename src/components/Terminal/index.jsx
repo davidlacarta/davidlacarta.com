@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 
-import { TerminalStyled, LineStyled } from "./TerminalStyled";
+import {
+  TerminalStyled,
+  CommandStyled,
+  ResultStyled,
+  AsciiStyled
+} from "./TerminalStyled";
+import Profile from "./Profile";
 import commands from "./commands.json";
 
 function Terminal() {
@@ -11,6 +17,10 @@ function Terminal() {
 
   const refInput = React.createRef();
   const refCommands = React.createRef();
+
+  useEffect(() => {
+    setLines([...lines, { value: <Profile />, ascii: true }]);
+  }, []);
 
   useEffect(() => {
     updateScroll();
@@ -30,9 +40,13 @@ function Terminal() {
       return "";
     }
 
+    if (/^profile$/i.test(command)) {
+      return { value: <Profile />, ascii: true };
+    }
+
     const commandResult = commands[command];
 
-    return commandResult || `command "${command}" not found`;
+    return { value: commandResult || `command "${command}" not found` };
   }
 
   function updateCursor(key) {
@@ -85,7 +99,7 @@ function Terminal() {
   function executeCommand() {
     const command = newLine();
 
-    if (command === "clear" || command === "cls") {
+    if (/^clear$/i.test(command)) {
       return setLines([]);
     }
 
@@ -95,9 +109,7 @@ function Terminal() {
       return setLines([...lines, commandLine]);
     }
 
-    const result = { value: search(command) };
-
-    return setLines([...lines, commandLine, result]);
+    return setLines([...lines, commandLine, search(command)]);
   }
 
   function handleOnFocusSection() {
@@ -123,24 +135,31 @@ function Terminal() {
     setCommand(event.target.value);
   }
 
+  function inner(html) {
+    return <div dangerouslySetInnerHTML={{ __html: html }} />;
+  }
+
   return (
     <TerminalStyled onClick={handleOnFocusSection}>
       <ul ref={refCommands}>
         <>
-          {lines.map(({ value, command, banner }, index) => (
-            <LineStyled key={index} command={command} banner={banner}>
-              {value}
-            </LineStyled>
-          ))}
-          <LineStyled
+          {lines.map(({ value, command, ascii }, index) => {
+            return command ? (
+              <CommandStyled key={index}>{value}</CommandStyled>
+            ) : ascii ? (
+              <ResultStyled key={index}>{value}</ResultStyled>
+            ) : (
+              <AsciiStyled key={index}>{inner(value)}</AsciiStyled>
+            );
+          })}
+          <CommandStyled
             key="command"
-            command
             input
             cursorMoves={cursorMoves}
             cursorPaused={cursorPaused}
           >
             {command}
-          </LineStyled>
+          </CommandStyled>
         </>
       </ul>
       <input

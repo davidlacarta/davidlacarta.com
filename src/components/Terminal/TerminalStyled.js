@@ -58,22 +58,22 @@ const animationBlink = css`
 
 const fontWidth = 9.6; // Courier New
 
-const LineStyled = styled.li`
+const LineBaseStyled = css`
   display: block;
   color: ${Color.front};
   min-height: 1rem;
-  position: relative;
   word-break: break-all;
-  white-space: ${({ banner }) => (banner ? "pre" : "initial")};
   padding-bottom: 0.5rem;
+  white-space: pre;
+`;
 
-  span {
-    color: ${Color.alternative};
-  }
+const CommandStyled = styled.li`
+  ${LineBaseStyled}
+  position: relative;
 
   :before {
     content: "$";
-    display: ${({ command }) => (command ? "block" : "none")};
+    display: block;
     position: absolute;
     left: -15px;
   }
@@ -81,17 +81,43 @@ const LineStyled = styled.li`
   :after {
     content: "";
     position: absolute;
-    width: ${fontWidth}px;
-    height: 1rem;
     background: ${Color.front};
-
+    height: 1rem;
+    width: ${fontWidth}px;
     display: ${({ input }) => (input ? "inline-block" : "none")};
-
     margin-left: ${({ cursorMoves }) =>
       cursorMoves ? `-${cursorMoves * fontWidth}px` : 0};
-
     ${({ cursorPaused }) => !cursorPaused && animationBlink}
   }
 `;
 
-export { TerminalStyled, LineStyled };
+const ResultStyled = styled.li`
+  ${LineBaseStyled}
+`;
+
+const AsciiStyled = styled.li`
+  ${LineBaseStyled}
+  word-break: break-all;
+  font-size: 1rem;
+
+  h1 {
+    span {
+      padding-right: 1rem;
+    }
+  }
+
+  ul {
+    padding-inline-start: 1rem;
+  }
+
+  p {
+    margin: 0.5rem;
+  }
+
+  mark {
+    background: none;
+    color: ${Color.alternative};
+  }
+`;
+
+export { TerminalStyled, CommandStyled, ResultStyled, AsciiStyled };
