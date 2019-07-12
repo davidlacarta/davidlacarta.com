@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import {
-  TerminalStyled,
-  CommandStyled,
-  ResultStyled,
-  AsciiStyled
-} from "./TerminalStyled";
+import { TerminalStyled, CommandStyled, ResultStyled } from "./TerminalStyled";
 import Profile from "./Profile";
 import commands from "./commands.json";
 
@@ -19,7 +14,7 @@ function Terminal() {
   const refCommands = React.createRef();
 
   useEffect(() => {
-    setLines([...lines, { value: <Profile />, ascii: true }]);
+    setLines([...lines, { value: <Profile /> }]);
   }, []);
 
   useEffect(() => {
@@ -41,7 +36,7 @@ function Terminal() {
     }
 
     if (/^profile$/i.test(command)) {
-      return { value: <Profile />, ascii: true };
+      return { value: <Profile /> };
     }
 
     const commandResult = commands[command];
@@ -135,21 +130,15 @@ function Terminal() {
     setCommand(event.target.value);
   }
 
-  function inner(html) {
-    return <div dangerouslySetInnerHTML={{ __html: html }} />;
-  }
-
   return (
     <TerminalStyled onClick={handleOnFocusSection}>
       <ul ref={refCommands}>
         <>
-          {lines.map(({ value, command, ascii }, index) => {
+          {lines.map(({ value, command }, index) => {
             return command ? (
               <CommandStyled key={index}>{value}</CommandStyled>
-            ) : ascii ? (
-              <ResultStyled key={index}>{value}</ResultStyled>
             ) : (
-              <AsciiStyled key={index}>{inner(value)}</AsciiStyled>
+              <ResultStyled key={index}>{value}</ResultStyled>
             );
           })}
           <CommandStyled

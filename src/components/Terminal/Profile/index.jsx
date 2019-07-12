@@ -1,13 +1,13 @@
 import React from "react";
 
-import { AsciiStyled } from "../TerminalStyled";
+import { ProfileStyled } from "./ProfileStyled";
 
 function Profile() {
   return (
-    <AsciiStyled>
+    <ProfileStyled>
       <h1>
         <span role="img" aria-label="rocket">
-          🚀
+          ‍🤖
         </span>
         David Lacarta
       </h1>
@@ -15,7 +15,7 @@ function Profile() {
       <p>
         <mark>OS</mark>: Frontend developer
       </p>
-      <p>
+      <section>
         <mark>Packages</mark>:
         <ul>
           <li>Javascript </li>
@@ -24,14 +24,14 @@ function Profile() {
           <li>Next </li>
           <li>Gatsby</li>
         </ul>
-      </p>
+      </section>
       <p>
         <mark>Uptime</mark>: 8 years
       </p>
       <p>
         <mark>Terminal</mark>: davidlacarta@gmail.com
       </p>
-    </AsciiStyled>
+    </ProfileStyled>
   );
 }
 

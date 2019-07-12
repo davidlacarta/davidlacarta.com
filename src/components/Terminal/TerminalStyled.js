@@ -1,11 +1,6 @@
 import styled from "@emotion/styled";
 import { keyframes, css } from "@emotion/core";
-
-const Color = {
-  front: "#DADBDD",
-  back: "#353b46",
-  alternative: "#F28482"
-};
+import Color from "../../utils/color";
 
 const hidde = css`
   border: 0;
@@ -95,29 +90,4 @@ const ResultStyled = styled.li`
   ${LineBaseStyled}
 `;
 
-const AsciiStyled = styled.li`
-  ${LineBaseStyled}
-  word-break: break-all;
-  font-size: 1rem;
-
-  h1 {
-    span {
-      padding-right: 1rem;
-    }
-  }
-
-  ul {
-    padding-inline-start: 1rem;
-  }
-
-  p {
-    margin: 0.5rem;
-  }
-
-  mark {
-    background: none;
-    color: ${Color.alternative};
-  }
-`;
-
-export { TerminalStyled, CommandStyled, ResultStyled, AsciiStyled };
+export { TerminalStyled, CommandStyled, ResultStyled };
