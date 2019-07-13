@@ -25,7 +25,7 @@ const TerminalStyled = styled.section`
   background: ${Color.back};
   width: 100%;
   height: 100%;
-  padding: 10px 30px;
+  padding: 30px 30px;
   box-sizing: border-box;
   overflow: hidden auto;
 
