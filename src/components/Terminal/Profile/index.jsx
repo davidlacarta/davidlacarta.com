@@ -41,9 +41,6 @@ function Profile() {
         </ul>
       </section>
       <p>
-        <mark>Experience</mark>: 8 years
-      </p>
-      <p>
         <mark>Mail</mark>: davidlacarta@gmail.com
       </p>
       <SocialStyled>
@@ -55,10 +52,6 @@ function Profile() {
           {
             href: "https://github.com/davidlacarta",
             icon: "icon-github"
-          },
-          {
-            href: "https://www.linkedin.com/in/davidlacarta/",
-            icon: "icon-facebook"
           }
         ].map(({ href, icon }) => (
           <a href={href} target="_blank" rel="noopener noreferrer">

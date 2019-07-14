@@ -39,7 +39,7 @@ function Terminal() {
       return { value: <Profile /> };
     }
 
-    const commandResult = commands[command];
+    const commandResult = commands[command.toLowerCase()];
 
     return { value: commandResult || `command "${command}" not found` };
   }

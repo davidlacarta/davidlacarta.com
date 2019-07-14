@@ -1,5 +1,7 @@
 {
+  "help": "$ profile $ clear $ whoami $ role $ skills $ mail",
   "whoami": "David Lacarta",
-  "help": "skills",
-  "skills": "javascript react html css"
+  "role": "Frontend developer",
+  "skills": "Javascript CSS3 React Next Gatsby",
+  "mail": "davidlacarta@gmail.com"
 }
