@@ -21,8 +21,6 @@ const resetListStyle = css`
 `;
 
 const TerminalStyled = styled.section`
-  font-family: Courier New;
-  background: ${Color.back};
   width: 100%;
   height: 100%;
   padding: 30px 30px;
@@ -55,7 +53,6 @@ const fontWidth = 9.6; // Courier New
 
 const LineBaseStyled = css`
   display: block;
-  color: ${Color.front};
   min-height: 1rem;
   word-break: break-all;
   padding-bottom: 0.5rem;

@@ -18,26 +18,18 @@ function Profile() {
       <section>
         <mark>Skills</mark>:
         <ul>
-          <li>
-            <span class="icon-javascript" />
-            Javascript
-          </li>
-          <li>
-            <span class="icon-css3" />
-            CSS3
-          </li>
-          <li>
-            <span class="icon-react" />
-            React
-          </li>
-          <li>
-            <span class="icon-next-dot-js" />
-            Next
-          </li>
-          <li>
-            <span class="icon-gatsby" />
-            Gatsby
-          </li>
+          {[
+            { skill: "Javascript", icon: "icon-javascript" },
+            { skill: "CSS3", icon: "icon-css3" },
+            { skill: "React", icon: "icon-react" },
+            { skill: "Next", icon: "icon-next-dot-js" },
+            { skill: "Gatsby", icon: "icon-gatsby" }
+          ].map(({ skill, icon }) => (
+            <li key={skill}>
+              <span className={icon} />
+              {skill}
+            </li>
+          ))}
         </ul>
       </section>
       <p>
@@ -54,8 +46,14 @@ function Profile() {
             icon: "icon-github"
           }
         ].map(({ href, icon }) => (
-          <a href={href} target="_blank" rel="noopener noreferrer">
-            <span class={icon} />
+          <a
+            key={icon}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={icon}
+          >
+            <span className={icon} />
           </a>
         ))}
       </SocialStyled>

@@ -1,7 +1,7 @@
 {
   "name": "terminal-emulator-profile",
   "version": "1.0.0",
-  "description": "",
+  "description": "Terminal emulator profile",
   "main": "index.js",
   "scripts": {
     "start": "npm run develop",
@@ -9,14 +9,22 @@
     "build": "gatsby build",
     "serve": "gatsby serve"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "terminal",
+    "emulator",
+    "profile"
+  ],
+  "author": "David Lacarta",
   "license": "ISC",
   "dependencies": {
     "@emotion/core": "^10.0.14",
     "@emotion/styled": "^10.0.14",
     "gatsby": "^2.13.12",
+    "gatsby-plugin-manifest": "^2.2.3",
+    "gatsby-plugin-react-helmet": "^3.1.2",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1"
   }
 }

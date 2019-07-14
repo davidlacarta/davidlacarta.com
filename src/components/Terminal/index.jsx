@@ -156,6 +156,7 @@ function Terminal() {
         onKeyDown={handleKeyDown}
         onChange={handleChangeInput}
         onBlur={handleOnBlurInput}
+        aria-label="command input"
       />
     </TerminalStyled>
   );
