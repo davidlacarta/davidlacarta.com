@@ -1,0 +1,84 @@
+@font-face {
+  font-family: "brands";
+  src: url("./fonts/brands.woff?3u1skl") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "brands" !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-angular:before {
+  content: "\e900";
+  color: #dd0031;
+}
+.icon-css3:before {
+  content: "\e901";
+  color: #1572b6;
+}
+.icon-facebook:before {
+  content: "\e902";
+  color: #4172b8;
+}
+.icon-gatsby:before {
+  content: "\e903";
+  color: #639;
+}
+.icon-git:before {
+  content: "\e904";
+  color: #f05032;
+}
+.icon-github:before {
+  content: "\e905";
+}
+.icon-html5:before {
+  content: "\e906";
+  color: #e34f26;
+}
+.icon-java:before {
+  content: "\e907";
+  color: #007396;
+}
+.icon-javascript:before {
+  content: "\e908";
+  color: #f7df1e;
+}
+.icon-jenkins:before {
+  content: "\e909";
+  color: #d24939;
+}
+.icon-jest:before {
+  content: "\e90a";
+  color: #c21325;
+}
+.icon-linkedin:before {
+  content: "\e90b";
+  color: #0077b5;
+}
+.icon-linux:before {
+  content: "\e90c";
+  color: #fcc624;
+}
+.icon-next-dot-js:before {
+  content: "\e90d";
+}
+.icon-react:before {
+  content: "\e90e";
+  color: #61dafb;
+}
+.icon-vim:before {
+  content: "\e90f";
+  color: #019733;
+}
