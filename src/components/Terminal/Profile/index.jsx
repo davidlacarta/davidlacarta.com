@@ -2,29 +2,47 @@ import React from "react";
 
 import { ProfileStyled, SocialStyled } from "./ProfileStyled";
 
+const data = {
+  name: "David Lacarta",
+  role: "Frontend developer",
+  mail: "davidlacarta@gmail.com",
+  skills: [
+    { skill: "Javascript", icon: "icon-javascript" },
+    { skill: "CSS3", icon: "icon-css3" },
+    { skill: "React", icon: "icon-react" },
+    { skill: "Next", icon: "icon-next-dot-js" },
+    { skill: "Gatsby", icon: "icon-gatsby" }
+  ],
+  links: [
+    {
+      href: "https://www.linkedin.com/in/davidlacarta/",
+      icon: "icon-linkedin"
+    },
+    {
+      href: "https://github.com/davidlacarta",
+      icon: "icon-github"
+    }
+  ]
+};
+
 function Profile() {
+  const { name, role, mail, skills, links } = data;
+
   return (
     <ProfileStyled>
       <h1>
-        <span role="img" aria-label="rocket">
+        <span role="img" aria-label="robot">
           ‍🤖
         </span>
-        David Lacarta
+        {name}
       </h1>
-      <p>---------------------</p>
       <p>
-        <mark>Role</mark>: Frontend developer
+        <mark>Role</mark>: {role}
       </p>
       <section>
         <mark>Skills</mark>:
         <ul>
-          {[
-            { skill: "Javascript", icon: "icon-javascript" },
-            { skill: "CSS3", icon: "icon-css3" },
-            { skill: "React", icon: "icon-react" },
-            { skill: "Next", icon: "icon-next-dot-js" },
-            { skill: "Gatsby", icon: "icon-gatsby" }
-          ].map(({ skill, icon }) => (
+          {skills.map(({ skill, icon }) => (
             <li key={skill}>
               <span className={icon} />
               {skill}
@@ -33,19 +51,10 @@ function Profile() {
         </ul>
       </section>
       <p>
-        <mark>Mail</mark>: davidlacarta@gmail.com
+        <mark>Mail</mark>: {mail}
       </p>
       <SocialStyled>
-        {[
-          {
-            href: "https://www.linkedin.com/in/davidlacarta/",
-            icon: "icon-linkedin"
-          },
-          {
-            href: "https://github.com/davidlacarta",
-            icon: "icon-github"
-          }
-        ].map(({ href, icon }) => (
+        {links.map(({ href, icon }) => (
           <a
             key={icon}
             href={href}

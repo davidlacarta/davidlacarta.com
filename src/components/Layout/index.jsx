@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
           }
         `}
       />
-      <MainStyled>{children}</MainStyled>
+      <SectionStyled>{children}</SectionStyled>
     </LayoutStyled>
   );
 };
@@ -33,7 +33,7 @@ const LayoutStyled = styled.main`
   align-items: center;
 `;
 
-const MainStyled = styled.main`
+const SectionStyled = styled.section`
   background: ${Color.back};
   color: ${Color.front};
   width: 100%;

@@ -7,7 +7,9 @@ const ProfileStyled = styled.summary`
   padding: 1rem 0;
 
   h1 {
-    margin: 0;
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
   }
 
   span {
