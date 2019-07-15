@@ -1,7 +1,12 @@
 {
-  "help": "$ profile $ clear $ whoami $ role $ skills $ mail",
+  "ls": "role.txt skills.txt mail.txt passwords.txt",
   "whoami": "David Lacarta",
-  "role": "Frontend developer",
-  "skills": "Javascript CSS3 React Next Gatsby",
-  "mail": "davidlacarta@gmail.com"
+  "cat role.txt": "Frontend developer",
+  "cat skills.txt": "Javascript CSS3 React Next Gatsby",
+  "cat mail.txt": "davidlacarta@gmail.com",
+  "cat passwords.txt": "permission denied",
+  "rm -rf /": "permission denied️️️",
+  "sudo cat passwords.txt": "you are a hacker! ☠️️",
+  "sudo rm -rf /": "you are a hacker! ☠️️",
+  "sudo rm -rf *": "you are a hacker! ☠️️"
 }
