@@ -5,17 +5,13 @@ import Profile from "./Profile";
 import commands from "./commands.json";
 
 function Terminal() {
-  const [lines, setLines] = useState([]);
+  const [lines, setLines] = useState([{ value: <Profile /> }]);
   const [command, setCommand] = useState("");
   const [cursorMoves, setCursorMoves] = useState(0);
   const [cursorPaused, setCursorPaused] = useState(true);
 
   const refInput = React.createRef();
   const refCommands = React.createRef();
-
-  useEffect(() => {
-    setLines([...lines, { value: <Profile /> }]);
-  }, []);
 
   useEffect(() => {
     updateScroll();
