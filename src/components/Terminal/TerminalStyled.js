@@ -56,7 +56,7 @@ const LineBaseStyled = css`
   min-height: 1rem;
   word-break: break-all;
   padding-bottom: 0.5rem;
-  white-space: pre;
+  white-space: pre-wrap;
 `;
 
 const CommandStyled = styled.li`
@@ -70,15 +70,13 @@ const CommandStyled = styled.li`
     left: -15px;
   }
 
-  :after {
+  span:before {
     content: "";
     position: absolute;
     background: ${Color.front};
     height: 1rem;
     width: ${fontWidth}px;
     display: ${({ input }) => (input ? "inline-block" : "none")};
-    margin-left: ${({ cursorMoves }) =>
-      cursorMoves ? `-${cursorMoves * fontWidth}px` : 0};
     ${({ cursorPaused }) => !cursorPaused && animationBlink}
   }
 `;
