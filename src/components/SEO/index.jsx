@@ -57,6 +57,14 @@ function SEO({ description, lang, meta, title }) {
         {
           property: `og:image`,
           content: `${siteUrl}${image}`
+        },
+        {
+          property: `og:image:type`,
+          content: `image/png`
+        },
+        {
+          property: `og:image:alt`,
+          content: `terminal`
         }
       ].concat(meta)}
     />
