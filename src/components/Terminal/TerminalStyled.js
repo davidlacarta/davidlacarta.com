@@ -25,7 +25,7 @@ const TerminalStyled = styled.section`
   height: 100%;
   padding: 30px 30px;
   box-sizing: border-box;
-  overflow: hidden auto;
+  overflow-y: auto;
 
   ul {
     display: flex;
