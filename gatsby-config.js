@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `David Lacarta`,
     description: `David Lacarta Profile`,
-    url: `https://davidlacarta.com`,
+    url: `http://davidlacarta.com`,
     image: `/images/icon.png`
   },
   plugins: [
