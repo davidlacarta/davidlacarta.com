@@ -6,7 +6,7 @@
   "mail": "davidlacarta@gmail.com",
   "ls": "README.md passwords",
   "cat": "file is missing - cat [file]",
-  "cat README.md": "To execute a command with root permissions type sudo [command]",
+  "cat readme.md": "To execute a command with root permissions type \"sudo [command]\"",
   "cat passwords": "permission denied",
   "sudo cat passwords": "you are a hacker! ☠️️",
   "sudo rm -rf /": "you are a hacker! ☠️️",

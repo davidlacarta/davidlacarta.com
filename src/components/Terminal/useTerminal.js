@@ -6,7 +6,7 @@ import commands from "./commands.json";
 function useTerminal() {
   const [lines, setLines] = useState([
     { value: <Profile /> },
-    { value: "Type `help` to begin" }
+    { value: 'Type "help" to begin' }
   ]);
   const [command, setCommand] = useState("");
   const [cursorMoves, setCursorMoves] = useState(0);
@@ -36,9 +36,9 @@ function useTerminal() {
     if (/^profile$/i.test(command)) {
       return { value: <Profile /> };
     }
-
+    console.log(command.toLowerCase());
     const commandResult = commands[command.toLowerCase()];
-
+    console.log(commands);
     return { value: commandResult || `command "${command}" not found` };
   }
 
