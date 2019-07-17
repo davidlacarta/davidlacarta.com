@@ -1,7 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: `David Lacarta`,
-    description: `David Lacarta Profile`
+    description: `David Lacarta Profile`,
+    url: `https://davidlacarta.com`,
+    image: `/images/icon.png`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

@@ -6,7 +6,12 @@ import { useStaticQuery, graphql } from "gatsby";
 function SEO({ description, lang, meta, title }) {
   const {
     site: {
-      siteMetadata: { title: siteTitle, description: siteDescription }
+      siteMetadata: {
+        title: siteTitle,
+        description: siteDescription,
+        url: siteUrl,
+        image
+      }
     }
   } = useStaticQuery(
     graphql`
@@ -15,6 +20,8 @@ function SEO({ description, lang, meta, title }) {
           siteMetadata {
             title
             description
+            url
+            image
           }
         }
       }
@@ -46,6 +53,10 @@ function SEO({ description, lang, meta, title }) {
         {
           property: `og:type`,
           content: `website`
+        },
+        {
+          property: `og:image`,
+          content: `${siteUrl}${image}`
         }
       ].concat(meta)}
     />
