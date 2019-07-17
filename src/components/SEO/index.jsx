@@ -55,6 +55,10 @@ function SEO({ description, lang, meta, title }) {
           content: `website`
         },
         {
+          property: `og:url`,
+          content: `${siteUrl}`
+        },
+        {
           property: `og:image`,
           content: `${siteUrl}${image}`
         },
