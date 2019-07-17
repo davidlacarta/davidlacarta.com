@@ -4,7 +4,10 @@ import Profile from "./Profile";
 import commands from "./commands.json";
 
 function useTerminal() {
-  const [lines, setLines] = useState([{ value: <Profile /> }]);
+  const [lines, setLines] = useState([
+    { value: <Profile /> },
+    { value: "Type `help` to begin" }
+  ]);
   const [command, setCommand] = useState("");
   const [cursorMoves, setCursorMoves] = useState(0);
   const [cursorPaused, setCursorPaused] = useState(true);

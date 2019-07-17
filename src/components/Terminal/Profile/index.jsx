@@ -30,12 +30,12 @@ function Profile() {
 
   return (
     <ProfileStyled>
-      <h1>
+      <section>
         <span role="img" aria-label="robot">
           ‍🤖
         </span>
-        {name}
-      </h1>
+        <h1>{name}</h1>
+      </section>
       <p>
         <mark>Role</mark>: {role}
       </p>

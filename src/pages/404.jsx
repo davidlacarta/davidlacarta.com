@@ -11,7 +11,7 @@ function NotFound() {
       <SectionStyled>
         <nav>
           <Link to="/">
-            <span role="img" aria-label="rocket">
+            <span role="img" aria-label="house">
               🏠
             </span>
           </Link>

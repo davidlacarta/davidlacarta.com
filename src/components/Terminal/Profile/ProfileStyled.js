@@ -2,18 +2,25 @@ import styled from "@emotion/styled";
 import Color from "../../../utils/color";
 
 const ProfileStyled = styled.summary`
-  word-break: break-all;
+  word-break: initial;
   font-size: 1rem;
   padding: 1rem 0;
 
   h1 {
     margin: 0.5rem 0;
-    font-size: 1.5rem;
-    padding-bottom: 1rem;
   }
 
   span {
     padding-right: 1rem;
+  }
+
+  h1,
+  section > span {
+    font-size: 2rem;
+  }
+
+  section:first-of-type {
+    margin: 1rem 0;
   }
 
   p,
@@ -46,6 +53,10 @@ const SocialStyled = styled.p`
   a {
     text-decoration: none;
     color: unset;
+
+    span:before {
+      font-size: 2rem;
+    }
   }
 `;
 
