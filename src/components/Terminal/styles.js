@@ -27,13 +27,13 @@ const TerminalStyled = styled.section`
   box-sizing: border-box;
   overflow-y: auto;
 
-  ul {
+  > ul {
     display: flex;
     flex-direction: column;
     ${resetListStyle}
   }
 
-  input {
+  > input {
     ${hidde}
   }
 `;
@@ -70,7 +70,7 @@ const CommandStyled = styled.li`
     left: -15px;
   }
 
-  span:before {
+  > span:before {
     content: "";
     position: absolute;
     background: ${Color.front};

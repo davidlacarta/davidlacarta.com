@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
-import Profile from "./Profile";
-import commands from "./commands.json";
+import { search } from "./commands";
 
 function useTerminal() {
   const [lines, setLines] = useState([
-    { value: <Profile /> },
+    { value: search("profile") },
     { value: 'Type "help" to begin' }
   ]);
   const [command, setCommand] = useState("");
@@ -26,20 +25,6 @@ function useTerminal() {
     setCommand("");
 
     return value;
-  }
-
-  function search(command) {
-    if (!command) {
-      return "";
-    }
-
-    if (/^profile$/i.test(command)) {
-      return { value: <Profile /> };
-    }
-
-    const commandResult = commands[command.toLowerCase()];
-
-    return { value: commandResult || `command "${command}" not found` };
   }
 
   function updateCursor(key) {
@@ -96,13 +81,11 @@ function useTerminal() {
       return setLines([]);
     }
 
-    const commandLine = { value: command, command: true };
+    const linesPlusCommand = [...lines, { value: command, command: true }];
 
-    if (!command) {
-      return setLines([...lines, commandLine]);
-    }
-
-    return setLines([...lines, commandLine, search(command)]);
+    return !command
+      ? setLines(linesPlusCommand)
+      : setLines([...linesPlusCommand, { value: search(command) }]);
   }
 
   function handleOnFocusSection() {

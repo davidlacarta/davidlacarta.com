@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Color from "../../../utils/color";
+import Color from "../../../../utils/color";
 
 const ProfileStyled = styled.summary`
   word-break: initial;
@@ -28,19 +28,6 @@ const ProfileStyled = styled.summary`
   p,
   section {
     margin: 0.5rem 0;
-  }
-
-  section > ul {
-    padding-inline-start: 1rem;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    li {
-      padding: 0.5rem;
-      display: flex;
-      align-items: center;
-    }
   }
 
   mark {
