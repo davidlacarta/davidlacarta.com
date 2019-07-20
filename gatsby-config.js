@@ -10,7 +10,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `david-lacarta`,
+        name: `davidlacarta`,
         short_name: `davidlacarta`,
         start_url: `/`,
         background_color: "lightslategrey",

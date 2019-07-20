@@ -2,11 +2,8 @@ import { useState, useEffect, useRef } from "react";
 
 import { search } from "./commands";
 
-function useTerminal() {
-  const [lines, setLines] = useState([
-    { value: search("profile") },
-    { value: 'Type "help" to begin' }
-  ]);
+function useTerminal(initLines = []) {
+  const [lines, setLines] = useState(initLines);
   const [command, setCommand] = useState("");
   const [cursorMoves, setCursorMoves] = useState(0);
   const [cursorPaused, setCursorPaused] = useState(true);

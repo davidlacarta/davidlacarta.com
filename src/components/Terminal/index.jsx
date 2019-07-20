@@ -2,6 +2,7 @@ import React from "react";
 
 import { TerminalStyled, CommandStyled, ResultStyled } from "./styles";
 import useTerminal from "./useTerminal";
+import { search } from "./commands";
 
 function CommandLines({
   refCommands,
@@ -48,7 +49,10 @@ function Terminal() {
     command,
     cursorMoves,
     cursorPaused
-  } = useTerminal();
+  } = useTerminal([
+    { value: search("profile") },
+    { value: 'Type "help" to begin' }
+  ]);
 
   return (
     <TerminalStyled onClick={handleOnFocusSection}>
