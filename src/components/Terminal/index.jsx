@@ -1,6 +1,6 @@
 import React from "react";
 
-import { TerminalStyled, CommandStyled, ResultStyled } from "./TerminalStyled";
+import { TerminalStyled, CommandStyled, ResultStyled } from "./styles";
 import useTerminal from "./useTerminal";
 
 function CommandLines({

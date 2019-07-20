@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ProfileStyled, SocialStyled } from "./ProfileStyled";
+import { ProfileStyled, SocialStyled } from "./styles";
 
 const data = {
   name: "David Lacarta",

@@ -36,9 +36,9 @@ function useTerminal() {
     if (/^profile$/i.test(command)) {
       return { value: <Profile /> };
     }
-    console.log(command.toLowerCase());
+
     const commandResult = commands[command.toLowerCase()];
-    console.log(commands);
+
     return { value: commandResult || `command "${command}" not found` };
   }
 
