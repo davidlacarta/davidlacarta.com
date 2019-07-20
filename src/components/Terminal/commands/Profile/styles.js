@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+
 import Color from "../../../../utils/color";
 
 const ProfileStyled = styled.summary`

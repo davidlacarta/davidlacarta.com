@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { keyframes, css } from "@emotion/core";
+
 import Color from "../../utils/color";
 
 const hidde = css`
