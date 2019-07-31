@@ -1,7 +1,7 @@
 {
-  "name": "terminal-emulator-profile",
+  "name": "davidlacarta",
   "version": "1.0.0",
-  "description": "Terminal emulator profile",
+  "description": "Personal site with terminal emulator",
   "main": "index.js",
   "scripts": {
     "start": "npm run develop",

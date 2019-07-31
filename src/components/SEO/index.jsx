@@ -1,17 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
-function SEO({ description, lang, meta, title }) {
+function SEO() {
   const {
     site: {
-      siteMetadata: {
-        title: siteTitle,
-        description: siteDescription,
-        url: siteUrl,
-        image
-      }
+      siteMetadata: { title, titleMeta, description, url, image }
     }
   } = useStaticQuery(
     graphql`
@@ -19,6 +13,7 @@ function SEO({ description, lang, meta, title }) {
         site {
           siteMetadata {
             title
+            titleMeta
             description
             url
             image
@@ -28,64 +23,49 @@ function SEO({ description, lang, meta, title }) {
     `
   );
 
-  const metaDescription = description || siteDescription;
+  const meta = [
+    {
+      name: `description`,
+      content: description
+    },
+    {
+      property: `og:title`,
+      content: titleMeta
+    },
+    {
+      property: `og:description`,
+      content: description
+    },
+    {
+      property: `og:type`,
+      content: `website`
+    },
+    {
+      property: `og:url`,
+      content: `${url}`
+    },
+    {
+      property: `og:image`,
+      content: `${url}${image}`
+    },
+    {
+      property: `og:image:type`,
+      content: `image/png`
+    },
+    {
+      property: `og:image:alt`,
+      content: `terminal`
+    }
+  ].concat([]);
 
   return (
     <Helmet
-      htmlAttributes={{
-        lang
-      }}
+      htmlAttributes={{ lang: "en" }}
       title={title}
-      titleTemplate={`%s | ${siteTitle}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription
-        },
-        {
-          property: `og:title`,
-          content: siteTitle
-        },
-        {
-          property: `og:description`,
-          content: metaDescription
-        },
-        {
-          property: `og:type`,
-          content: `website`
-        },
-        {
-          property: `og:url`,
-          content: `${siteUrl}`
-        },
-        {
-          property: `og:image`,
-          content: `${siteUrl}${image}`
-        },
-        {
-          property: `og:image:type`,
-          content: `image/png`
-        },
-        {
-          property: `og:image:alt`,
-          content: `terminal`
-        }
-      ].concat(meta)}
+      titleTemplate={title}
+      meta={meta}
     />
   );
 }
-
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``
-};
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired
-};
 
 export default SEO;

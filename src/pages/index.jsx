@@ -7,7 +7,7 @@ import SEO from "../components/SEO";
 function Index() {
   return (
     <Layout>
-      <SEO title="Profile" />
+      <SEO />
       <Terminal />
     </Layout>
   );

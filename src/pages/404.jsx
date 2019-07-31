@@ -8,7 +8,7 @@ import SEO from "../components/SEO";
 function NotFound() {
   return (
     <Layout>
-      <SEO title="404" />
+      <SEO />
       <SectionStyled>
         <nav>
           <Link to="/">

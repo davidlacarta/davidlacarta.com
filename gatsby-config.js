@@ -1,7 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `David Lacarta`,
-    description: `David Lacarta Profile`,
+    titleMeta: `✨David Lacarta`,
+    description: `Software developer. Passionate about Front End, Javascript, CSS, React.`,
     url: `http://davidlacarta.com`,
     image: `/images/icon.png`
   },
