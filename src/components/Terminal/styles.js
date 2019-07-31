@@ -72,8 +72,10 @@ const CommandStyled = styled.li`
   }
 
   > span:before {
-    content: "";
+    ${({ cursorChar }) =>
+      cursorChar ? `content: "${cursorChar}"` : `content: ""`};
     position: absolute;
+    color: ${Color.back};
     background: ${Color.front};
     height: 1rem;
     width: ${fontWidth}px;

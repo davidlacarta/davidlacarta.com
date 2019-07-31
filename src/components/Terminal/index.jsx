@@ -13,9 +13,11 @@ function CommandLines({
 }) {
   const position = command.length - cursorMoves;
 
-  const commandBefore = command.slice(0, position);
-  const commandInner = command.charAt(position);
-  const commandAfter = command.slice(position + 1);
+  const [beforeCursor, inCursor, afterCursor] = [
+    command.slice(0, position),
+    command.charAt(position),
+    command.slice(position + 1)
+  ];
 
   return (
     <ul ref={refCommands}>
@@ -27,10 +29,15 @@ function CommandLines({
             <ResultStyled key={index}>{value}</ResultStyled>
           )
         )}
-        <CommandStyled key="command" input cursorPaused={cursorPaused}>
-          {commandBefore}
-          <span>{commandInner}</span>
-          {commandAfter}
+        <CommandStyled
+          key="command"
+          input
+          cursorPaused={cursorPaused}
+          cursorChar={inCursor}
+        >
+          {beforeCursor}
+          <span>{inCursor}</span>
+          {afterCursor}
         </CommandStyled>
       </>
     </ul>
