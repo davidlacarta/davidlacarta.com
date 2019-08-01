@@ -1,22 +1,23 @@
 import React from "react";
 
 import { TerminalStyled, CommandStyled, ResultStyled } from "./styles";
-import useTerminal from "./useTerminal";
+import useCommand from "./useCommand";
+import useCursor from "./useCursor";
 import { search } from "./commands";
 
 function CommandLines({
   refCommands,
   lines,
   command,
-  cursorMoves,
+  cursorShifts,
   cursorPaused
 }) {
-  const position = command.length - cursorMoves;
+  const cursorPosition = command.length - cursorShifts;
 
   const [beforeCursor, inCursor, afterCursor] = [
-    command.slice(0, position),
-    command.charAt(position),
-    command.slice(position + 1)
+    command.slice(0, cursorPosition),
+    command.charAt(cursorPosition),
+    command.slice(cursorPosition + 1)
   ];
 
   return (
@@ -45,36 +46,53 @@ function CommandLines({
 }
 
 function Terminal() {
-  const {
-    refInput,
-    refCommands,
-    handleOnFocusSection,
-    handleOnBlurInput,
-    handleKeyDown,
-    handleChangeInput,
-    lines,
-    command,
-    cursorMoves,
-    cursorPaused
-  } = useTerminal([
+  const history = [
     { value: search("profile") },
     { value: 'Type "help" to begin' }
-  ]);
+  ];
+
+  const {
+    refCommand,
+    refCommandHistory,
+    handleOnFocus: handleOnFocusCommand,
+    handleKeyDown: handleKeyDownCommand,
+    handleChange,
+    commandHistory,
+    command
+  } = useCommand(history);
+
+  const {
+    handleOnFocus: handleOnFocusCursor,
+    handleOnBlur,
+    handleKeyDown: handleKeyDownCursor,
+    shifts,
+    paused
+  } = useCursor(command);
+
+  function handleOnFocusTerminal(event) {
+    handleOnFocusCommand(event);
+    handleOnFocusCursor(event);
+  }
+
+  function handleKeyDownInput(event) {
+    handleKeyDownCommand(event);
+    handleKeyDownCursor(event);
+  }
 
   return (
-    <TerminalStyled onClick={handleOnFocusSection}>
+    <TerminalStyled onClick={handleOnFocusTerminal}>
       <CommandLines
-        refCommands={refCommands}
-        lines={lines}
+        refCommands={refCommandHistory}
+        lines={commandHistory}
         command={command}
-        cursorMoves={cursorMoves}
-        cursorPaused={cursorPaused}
+        cursorShifts={shifts}
+        cursorPaused={paused}
       />
       <input
-        ref={refInput}
-        onKeyDown={handleKeyDown}
-        onChange={handleChangeInput}
-        onBlur={handleOnBlurInput}
+        ref={refCommand}
+        onKeyDown={handleKeyDownInput}
+        onChange={handleChange}
+        onBlur={handleOnBlur}
         aria-label="command input"
       />
     </TerminalStyled>
