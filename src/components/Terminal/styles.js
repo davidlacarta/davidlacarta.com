@@ -50,13 +50,13 @@ const animationBlink = css`
   animation: ${blink} 1s ease infinite;
 `;
 
-const fontWidth = 9.6; // Courier New
+const fontWidth = 11; // Roboto Mono
 
 const LineBaseStyled = css`
   display: block;
-  min-height: 1rem;
+  min-height: 1.7rem;
   word-break: break-all;
-  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
   white-space: pre-wrap;
 `;
 
@@ -68,6 +68,7 @@ const CommandStyled = styled.li`
     content: "$";
     display: block;
     position: absolute;
+    height: 1.2rem;
     left: -15px;
   }
 
@@ -77,7 +78,7 @@ const CommandStyled = styled.li`
     position: absolute;
     color: ${Color.back};
     background: ${Color.front};
-    height: 1rem;
+    height: 1.7rem;
     width: ${fontWidth}px;
     display: ${({ input }) => (input ? "inline-block" : "none")};
     ${({ cursorPaused }) => !cursorPaused && animationBlink}

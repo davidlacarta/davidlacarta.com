@@ -20,6 +20,17 @@ module.exports = {
         icon: `src/images/icon.png`
       }
     },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Roboto Mono`,
+            variants: [`400`, `700`]
+          }
+        ]
+      }
+    },
     `gatsby-plugin-offline`
   ]
 };

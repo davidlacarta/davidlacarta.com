@@ -13,7 +13,8 @@ const Layout = ({ children }) => {
           body {
             margin: 0;
             background: ${Color.base};
-            font-family: Courier New;
+            font-family: Roboto Mono;
+            font-size: 1.2rem;
           }
         `}
       />

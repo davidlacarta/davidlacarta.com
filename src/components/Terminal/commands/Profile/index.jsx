@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ProfileStyled, SocialStyled } from "./styles";
+import { ProfileStyled, SocialStyled, IconStyled } from "./styles";
 import Skills from "../Skills";
 
 const data = {
@@ -25,9 +25,9 @@ function Profile() {
   return (
     <ProfileStyled>
       <section>
-        <span role="img" aria-label="robot">
+        <IconStyled role="img" aria-label="robot">
           ‍🤖
-        </span>
+        </IconStyled>
         <h1>{name}</h1>
       </section>
       <p>
