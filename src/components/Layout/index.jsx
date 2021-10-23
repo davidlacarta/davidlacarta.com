@@ -27,6 +27,7 @@ Layout.propTypes = {
 };
 
 const LayoutStyled = styled.main`
+  position: fixed;
   height: 100vh;
   width: 100vw;
   display: flex;
